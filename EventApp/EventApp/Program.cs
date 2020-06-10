@@ -28,7 +28,7 @@ namespace EventApp
         }
         void kasitteleViesti(string viesti, int koko)
         {
-            Console.WriteLine($"{nimi} vastaanotti {viesti}n ja jakoi {koko} ihmiselle.");
+            Console.WriteLine($"{nimi} vastaanotti {viesti}n ja kertoi siitä {koko} ihmiselle.");
         }
         public void LähetäViesti(Merkkari arg, string message)
         {
@@ -40,16 +40,19 @@ namespace EventApp
         static void Main(string[] args)
         {
             Merkkari merirosvo = new Merkkari();
+            Merkkari laillinen = new Merkkari();
             Kyyläjä kyyla1 = new Kyyläjä("kyyla1");
             Kyyläjä kyyla2 = new Kyyläjä("kyyla2");
             Kyyläjä kyyla3 = new Kyyläjä("kyyla2");
             Kyyläjä kyyla4 = new Kyyläjä("kyyla2");
             kyyla1.Tilaa(merirosvo);
-            kyyla1.LähetäViesti(merirosvo, "Terve");
+            kyyla1.LähetäViesti(merirosvo, "Lain nimessä");
             kyyla2.Tilaa(merirosvo);
             kyyla3.Tilaa(merirosvo);
             kyyla4.Tilaa(merirosvo);
-            kyyla2.LähetäViesti(merirosvo, "Stau");
+            kyyla4.LähetäViesti(merirosvo, "Poliisi");
+            kyyla2.Tilaa(laillinen);
+            kyyla2.LähetäViesti(laillinen, "vaara hitti");
             Console.ReadLine();
         }
     }
